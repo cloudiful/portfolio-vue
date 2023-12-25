@@ -46,21 +46,26 @@ function goLink(t: Track) {
       <v-card-subtitle>{{ res[0].track_name.String }}</v-card-subtitle>
 
       <v-card-actions>
-        <v-btn v-for="(item,index) in res"
-               :key="index"
-               @click="goLink(item)"
-               color="orange-lighten-2"
-               variant="tonal"
-               rounded
-               target="_blank"
-               style="margin: 1%"
-        >
-          {{item.platform_name.String}}
-        </v-btn>
+        <div style="width: 100%">
+          <v-btn v-for="(item,index) in res"
+                 :key="index"
+                 @click="goLink(item)"
+                 color="orange-lighten-2"
+                 variant="tonal"
+                 rounded
+                 target="_blank"
+                 size="small"
+                 style="margin: 2%"
+          >
+            {{item.platform_name.String}}
+          </v-btn>
+        </div>
 
         <v-spacer></v-spacer>
 
-        <v-btn :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'" @click="show = !show"></v-btn>
+        <div>
+          <v-btn :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'" @click="show = !show"></v-btn>
+        </div>
       </v-card-actions>
 
       <v-expand-transition>

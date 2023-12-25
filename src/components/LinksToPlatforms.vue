@@ -12,7 +12,7 @@ let params = {
 let platforms: Array<Platform>;
 
 async function getInfo() {
-  await axios.post('/getPlatformLinks', params).then(function (response) {
+  await axios.post('/getPlatformInfo', params).then(function (response) {
     platforms = response.data;
     fetched.value = true;
   }).catch(function (error) {
@@ -36,15 +36,14 @@ function goLink(p: Platform) {
     <v-col v-for="(platform, index) of platforms" :key="index" cols="auto">
       <v-btn
         @click="goLink(platform)"
-        min-width="10%"
         rel="noopener noreferrer"
         target="_blank"
         variant="tonal"
         rounded
       >
         <v-icon
-          icon="mdi-music"
-          size="medium"
+          :icon="platform.platform_icon.String"
+          size="small"
           :start=true
         />
 
