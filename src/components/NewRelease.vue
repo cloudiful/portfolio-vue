@@ -16,7 +16,6 @@ async function getInfo() {
   await axios.post('/getTrackInfo', params).then(function (response) {
     res = response.data;
     fetched.value = true;
-    console.log(res)
   }).catch(function (error) {
     console.log(error)
   })

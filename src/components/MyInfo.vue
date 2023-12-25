@@ -14,7 +14,6 @@ async function getInfo() {
   await axios.post('/getArtistInfo',params).then(function (response) {
     res = response.data[0];
     fetched.value = true;
-    console.log(res)
   }).catch(function (error) {
     console.log(error)
   })

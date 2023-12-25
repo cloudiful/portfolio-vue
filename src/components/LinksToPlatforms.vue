@@ -15,7 +15,6 @@ async function getInfo() {
   await axios.post('/getPlatformLinks', params).then(function (response) {
     platforms = response.data;
     fetched.value = true;
-    console.log(platforms)
   }).catch(function (error) {
     console.log(error)
   })
