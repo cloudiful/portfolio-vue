@@ -31,8 +31,8 @@ function goLink(p: Platform) {
 
 <template>
   <!--      音乐平台链接-->
-  <div style="width: 80%; margin: auto">
-    <v-row class="d-flex align-center justify-center" v-if="fetched">
+  <div style="width: 80%; margin:auto">
+    <v-row style="margin-top:3%;margin-bottom: 2%" class="d-flex align-center justify-center" v-if="fetched">
 
       <v-col v-for="(platform, index) of platforms" :key="index" cols="auto">
         <v-btn

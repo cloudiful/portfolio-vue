@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar scroll-behavior="hide" :flat=true :floating=true
+  <v-app-bar :flat=true :floating=true
              style="backdrop-filter: blur(20px) saturate(180%) ; background: rgba(0,0,0,0.28)">
       <v-app-bar-title>
         <v-btn :ripple="false" variant="plain" @click="goIndex">

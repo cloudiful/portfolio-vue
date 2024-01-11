@@ -48,7 +48,7 @@ function goLink(t: Track) {
 
 // get album cover image path
 function imgPath(t: Track) {
-  return new URL(`/src/assets/${t.track_name.String}.png`, import.meta.url).href
+  return new URL(`/src/assets/${t.track_name.String}.webp`, import.meta.url).href
 }
 
 // toggle to show description
@@ -65,8 +65,8 @@ function toggleDescription(i: number) {
 
     <div style="user-select: none">
       <div class="track-box" v-for="(item, index) in tracks" :key="'track'+index.toString()">
-        <v-card variant="text" class="mx-auto music-card" @mouseenter="showBtn[index].value = true"
-                @mouseleave="showBtn[index].value = false">
+        <v-card variant="text" class="mx-auto music-card" @pointerenter="showBtn[index].value = true"
+                @pointerleave="showBtn[index].value = false">
           <v-img @click="toggleDescription(index)" class="album-cover"
                  :src="imgPath(track[tracks_index[index]])"></v-img>
 
@@ -139,7 +139,7 @@ function toggleDescription(i: number) {
 }
 
 .music-card {
-  max-width: 60vh;
+  max-width: 61vh;
   max-height: 80vh;
   background: none;
   border-radius: 3vh;
@@ -149,18 +149,8 @@ function toggleDescription(i: number) {
 }
 
 .music-card:hover {
-  max-width: 66vh;
-  max-height: 88vh;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 300ms ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
+  max-width: 65vh;
+  max-height: 86vh;
 }
 
 .music-link-btn {
