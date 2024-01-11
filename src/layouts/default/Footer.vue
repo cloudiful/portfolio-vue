@@ -27,7 +27,7 @@ function goHome() {
       >
         {{ link }}
       </v-btn>
-      <v-col class="text-center mt-4" cols="12">
+      <v-col class="text-center mt-4" cols="12" style="padding-bottom: 6%">
         {{ new Date().getFullYear() }} — <strong>Cloudiful</strong>
       </v-col>
     </v-row>

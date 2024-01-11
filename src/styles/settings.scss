@@ -8,3 +8,13 @@
 // @use 'vuetify/settings' with (
 //   $color-pack: false
 // );
+
+$font-family: 'PingFang SC';
+
+.v-application {
+  [class*='text-'] {
+    font-family: $font-family, sans-serif;
+  }
+
+  font-family: $font-family, sans-serif;
+}

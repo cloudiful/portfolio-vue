@@ -25,11 +25,11 @@ getInfo();
 
 <template>
   <div v-if="fetched">
-    <v-avatar size="20%" style="margin-top: 5%">
+    <v-avatar size="10%">
       <v-img src="@/assets/logo.jpg"/>
     </v-avatar>
 
-    <h4 style="padding-top: 5%">{{res.artist_name_cn.String}}｜{{res.artist_name.String}}</h4>
+    <h4 style="padding-top: 4%">{{ res.artist_name_cn.String }}｜{{ res.artist_name.String }}</h4>
   </div>
 
 </template>

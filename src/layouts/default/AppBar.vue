@@ -1,11 +1,12 @@
 <template>
-  <v-app-bar :flat=true :floating=true style="backdrop-filter: saturate(180%) blur(20px)">
+  <v-app-bar scroll-behavior="hide" :flat=true :floating=true
+             style="backdrop-filter: blur(20px) saturate(180%) ; background: rgba(0,0,0,0.28)">
       <v-app-bar-title>
-          <v-btn @click="goIndex">
-              <v-icon icon="mdi-home" style="padding-right: 10px"/>
-              首页
+        <v-btn :ripple="false" variant="plain" @click="goIndex">
+          <v-icon size="large" icon="mdi-home"/>
           </v-btn>
-        <v-btn icon="mdi-theme-light-dark" @click="toggleDarkMode">
+        <v-btn :ripple="false" variant="plain" @click="toggleDarkMode">
+          <v-icon size="large" icon="mdi-theme-light-dark"></v-icon>
         </v-btn>
       </v-app-bar-title>
     <div type="flex">

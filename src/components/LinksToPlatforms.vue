@@ -31,29 +31,40 @@ function goLink(p: Platform) {
 
 <template>
   <!--      音乐平台链接-->
-  <v-row class="d-flex align-center justify-center" style="padding-top: 5%; padding-bottom: 5%" v-if="fetched">
+  <div style="width: 80%; margin: auto">
+    <v-row class="d-flex align-center justify-center" v-if="fetched">
 
-    <v-col v-for="(platform, index) of platforms" :key="index" cols="auto">
-      <v-btn
-        @click="goLink(platform)"
-        rel="noopener noreferrer"
-        target="_blank"
-        variant="tonal"
-        rounded
-      >
-        <v-icon
-          :icon="platform.platform_icon.String"
-          size="small"
-          :start=true
-        />
+      <v-col v-for="(platform, index) of platforms" :key="index" cols="auto">
+        <v-btn
+          @click="goLink(platform)"
+          rel="noopener noreferrer"
+          target="_blank"
+          variant="elevated"
+          rounded
+          :ripple="false"
+          class="platform-links-btn"
+        >
+          <v-icon
+            :icon="platform.platform_icon.String"
+            size="small"
+            :start=true
+          />
 
-        {{ platform.platform_name.String }}
-      </v-btn>
-    </v-col>
+          {{ platform.platform_name.String }}
+        </v-btn>
+      </v-col>
 
-  </v-row>
+    </v-row>
+  </div>
 </template>
 
 <style scoped>
+.platform-links-btn {
+  box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.12);
+}
 
+.platform-links-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 24px 2px rgba(255, 255, 255, 0.08);
+}
 </style>

@@ -10,11 +10,11 @@ let params = {
   latest: true,
 }
 
-let res:Array<Track>;
+let track: Array<Track>;
 
 async function getInfo() {
   await axios.post('/getTrackInfo', params).then(function (response) {
-    res = response.data;
+    track = response.data;
     fetched.value = true;
   }).catch(function (error) {
     console.log(error)
@@ -28,6 +28,9 @@ function goLink(t: Track) {
   window.open(t.link_url.String);
 }
 
+function imgPath(t: Track) {
+  return new URL(`/src/assets/${t.track_name.String}.png`, import.meta.url).href
+}
 
 </script>
 
@@ -37,17 +40,17 @@ function goLink(t: Track) {
     <h2>最新发布 | New Release</h2>
 
     <v-card class="mx-auto" max-width="75%" style="margin-top: 5%;margin-bottom: 5%">
-      <v-img src="@/assets/Resee.png"></v-img>
+      <v-img :src="imgPath(track[0])"></v-img>
 
       <v-card-title>
-        {{ res[0].track_name_cn.String }}
+        {{ track[0].track_name_cn.String }}
       </v-card-title>
 
-      <v-card-subtitle>{{ res[0].track_name.String }}</v-card-subtitle>
+      <v-card-subtitle>{{ track[0].track_name.String }}</v-card-subtitle>
 
       <v-card-actions>
         <div style="width: 100%">
-          <v-btn v-for="(item,index) in res"
+          <v-btn v-for="(item,index) in track"
                  :key="index"
                  @click="goLink(item)"
                  color="orange-lighten-2"
@@ -73,11 +76,12 @@ function goLink(t: Track) {
           <v-divider></v-divider>
 
           <v-card-text>
-            {{ res[0].description.String }}
+            {{ track[0].description.String }}
           </v-card-text>
         </div>
       </v-expand-transition>
     </v-card>
+
   </div>
 
 </template>
