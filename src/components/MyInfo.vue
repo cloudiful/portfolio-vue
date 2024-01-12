@@ -5,7 +5,7 @@ import axios from "axios";
 import LinksToPlatforms from "@/components/LinksToPlatforms.vue";
 
 let fetched = ref(false);
-let showPlatformLinks = ref(true)
+let showPlatformLinks = ref(false)
 
 let res: Artist;
 
@@ -32,7 +32,7 @@ getInfo();
 
 <template>
   <div v-if="fetched">
-    <v-avatar size="20%">
+    <v-avatar size="20%" style="margin-top: 5%">
       <v-img src="@/assets/logo.webp"/>
     </v-avatar>
 

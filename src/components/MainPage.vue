@@ -2,7 +2,7 @@
   <v-container class="fill-height">
     <v-responsive class="align-center text-center fill-height">
 
-      <MyInfo style="margin-top: 4%"></MyInfo>
+      <MyInfo></MyInfo>
       <!--      <NewRelease></NewRelease>-->
       <AllMusic style="margin-top: 10%"></AllMusic>
 
