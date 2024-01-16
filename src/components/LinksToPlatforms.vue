@@ -39,7 +39,7 @@ function goLink(p: Platform) {
           @click="goLink(platform)"
           rel="noopener noreferrer"
           target="_blank"
-          variant="elevated"
+          variant="plain"
           rounded
           :ripple="false"
           class="platform-links-btn"
@@ -60,11 +60,11 @@ function goLink(p: Platform) {
 
 <style scoped>
 .platform-links-btn {
-  box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.12);
+  transition: 200ms;
 }
 
 .platform-links-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 24px 2px rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(128, 128, 128, 0.5);
 }
 </style>

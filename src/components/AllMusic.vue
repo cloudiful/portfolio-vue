@@ -152,12 +152,12 @@ function toggleDescription(i: number) {
 
 .music-link-btn {
   margin: 3% 2%;
-  box-shadow: 0 0 36px 0 rgba(0, 0, 0, 0.08);
+  transition: 200ms;
 }
 
 .music-link-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 24px 6px rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(128, 128, 128, 0.5);
 }
 
 </style>
