@@ -5,7 +5,7 @@ import axios from "axios";
 import LinksToPlatforms from "@/components/LinksToPlatforms.vue";
 
 let fetched = ref(false);
-let showPlatformLinks = ref(false)
+let showPlatformLinks = ref(true)
 
 let res: Artist;
 
@@ -32,7 +32,7 @@ getInfo();
 
 <template>
   <div v-if="fetched">
-    <v-avatar size="20%" style="margin-top: 5%">
+    <v-avatar size="20%" class="my-logo">
       <v-img src="@/assets/logo.webp"/>
     </v-avatar>
 
@@ -57,5 +57,12 @@ getInfo();
 .show-more-btn {
   width: 100%;
   background: none;
+}
+.my-logo{
+  margin-top: 5%;
+  transition: 500ms;
+}
+.my-logo:hover{
+  box-shadow: 0 0 32px 12px rgba(131, 131, 131, 0.25);
 }
 </style>

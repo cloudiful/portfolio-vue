@@ -65,8 +65,8 @@ function toggleDescription(i: number) {
 
     <div style="user-select: none">
       <div class="track-box" v-for="(item, index) in tracks" :key="'track'+index.toString()">
-        <v-card variant="text" class="mx-auto music-card" @pointerenter="showBtn[index].value = true"
-                @pointerleave="showBtn[index].value = false">
+        <v-card variant="text" class="mx-auto music-card" @mouseenter="showBtn[index].value = true"
+                @mouseleave="showBtn[index].value = false">
           <v-img @click="toggleDescription(index)" class="album-cover"
                  :src="imgPath(track[tracks_index[index]])"></v-img>
 
@@ -100,17 +100,14 @@ function toggleDescription(i: number) {
             </div>
           </v-expand-transition>
 
-
-          <v-btn :ripple="false" class="show-more-btn" variant="plain" @click="toggleDescription(index)">
-            <Transition name="fade">
-              <v-icon v-if="showBtn[index].value"
-                      size="large"
-                      :icon="show[index].value ? 'mdi-chevron-up' : 'mdi-chevron-down'"></v-icon>
-            </Transition>
-          </v-btn>
-
-
         </v-card>
+        <v-btn :ripple="false" class="show-more-btn" variant="plain" @click="toggleDescription(index)">
+          <Transition name="fade">
+            <v-icon v-if="showBtn[index].value"
+                    size="large"
+                    :icon="show[index].value ? 'mdi-chevron-up' : 'mdi-chevron-down'"></v-icon>
+          </Transition>
+        </v-btn>
       </div>
     </div>
 
@@ -121,7 +118,8 @@ function toggleDescription(i: number) {
 <style scoped>
 .expanded-area {
   width: 100%;
-  padding-top: 4%
+  padding-top: 4%;
+  padding-bottom: 4%;
 }
 
 .show-more-btn {
@@ -148,9 +146,8 @@ function toggleDescription(i: number) {
   transition: 400ms;
 }
 
-.music-card:hover {
-  max-width: 65vh;
-  max-height: 86vh;
+.music-card:hover{
+  box-shadow: 0 0 32px 12px rgba(131, 131, 131, 0.25);
 }
 
 .music-link-btn {
