@@ -4,7 +4,6 @@ import {Track} from "@/interfaces/track";
 import axios from "axios";
 
 let fetched = ref(false);
-let show = ref(false);
 
 let params = {
   latest: true,
@@ -36,51 +35,46 @@ function imgPath(t: Track) {
 
 <template>
 
-  <div v-if="fetched">
-    <h2>最新发布 | New Release</h2>
+  <div style="text-align: center" v-if="fetched">
+    <v-icon icon="mdi-star-shooting"></v-icon>
 
-    <v-card class="mx-auto" max-width="75%" style="margin-top: 5%;margin-bottom: 5%">
-      <v-img :src="imgPath(track[0])"></v-img>
+    <div style="user-select: none">
+      <div class="track-box">
+        <v-card variant="text" class="mx-auto music-card">
+          <v-img class="album-cover"
+                 :src="imgPath(track[0])"></v-img>
 
-      <v-card-title>
-        {{ track[0].track_name_cn.String }}
-      </v-card-title>
+          <v-card-title>{{ track[0].track_name_cn.String }}</v-card-title>
 
-      <v-card-subtitle>{{ track[0].track_name.String }}</v-card-subtitle>
+          <v-card-subtitle>{{ track[0].track_name.String }}</v-card-subtitle>
 
-      <v-card-actions>
-        <div style="width: 100%">
-          <v-btn v-for="(item,index) in track"
-                 :key="index"
-                 @click="goLink(item)"
-                 color="orange-lighten-2"
-                 variant="tonal"
-                 rounded
-                 target="_blank"
-                 size="small"
-                 style="margin: 2%"
-          >
-            {{item.platform_name.String}}
-          </v-btn>
-        </div>
 
-        <v-spacer></v-spacer>
+          <v-expand-transition>
 
-        <div>
-          <v-btn :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'" @click="show = !show"></v-btn>
-        </div>
-      </v-card-actions>
+            <div>
 
-      <v-expand-transition>
-        <div v-if="show">
-          <v-divider></v-divider>
+              <div class="expanded-area">
+                <v-btn
+                  v-for="(item,i) in track.filter((t:Track) => t.track_name.String == track[0].track_name.String)"
+                  :key="'track_link'+i"
+                  @click="goLink(item)"
+                  variant="text"
+                  target="_blank"
+                  rounded
+                  size="small"
+                  class="music-link-btn"
+                >
+                  {{ track[i].platform_name.String }}
+                </v-btn>
+              </div>
 
-          <v-card-text>
-            {{ track[0].description.String }}
-          </v-card-text>
-        </div>
-      </v-expand-transition>
-    </v-card>
+              {{ track[0].description.String }}
+            </div>
+          </v-expand-transition>
+
+        </v-card>
+      </div>
+    </div>
 
   </div>
 
@@ -88,4 +82,42 @@ function imgPath(t: Track) {
 
 
 <style scoped>
+.expanded-area {
+  width: 100%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
+
+.album-cover {
+  border-radius: 3vh;
+}
+
+.track-box {
+  margin: auto;
+  width: 90%;
+}
+
+.music-card {
+  max-width: 61vh;
+  max-height: 80vh;
+  background: none;
+  border-radius: 3vh;
+  margin-top: 4%;
+  margin-bottom: 4%;
+  transition: 400ms;
+}
+
+.music-card:hover {
+  box-shadow: 0 0 32px 12px rgba(131, 131, 131, 0.25);
+}
+
+.music-link-btn {
+  margin: 3% 2%;
+  transition: 200ms;
+}
+
+.music-link-btn:hover {
+  transform: scale(1.05);
+  border: 2px solid rgba(128, 128, 128, 0.5);
+}
 </style>
