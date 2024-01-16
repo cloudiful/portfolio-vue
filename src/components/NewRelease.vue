@@ -102,10 +102,9 @@ function imgPath(t: Track) {
 }
 
 .music-link-btn {
-  width: 100%;
+  width: 80%;
   height: 100%;
-  max-width: 25vw;
-  margin: auto;
+  margin: 2%;
   padding-top: 5%;
   padding-bottom: 5%;
   transition: 200ms;

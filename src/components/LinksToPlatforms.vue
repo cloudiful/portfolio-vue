@@ -60,7 +60,6 @@ function goLink(p: Platform) {
 .platform-links-btn {
   width: 100%;
   height: 100%;
-  max-width: 25vw;
   margin: auto;
   padding-top: 15%;
   padding-bottom: 15%;
