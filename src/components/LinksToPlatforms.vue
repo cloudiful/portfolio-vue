@@ -58,6 +58,12 @@ function goLink(p: Platform) {
 
 <style scoped>
 .platform-links-btn {
+  width: 100%;
+  height: 100%;
+  max-width: 25vw;
+  margin: auto;
+  padding-top: 15%;
+  padding-bottom: 15%;
   transition: 200ms;
   border: 2px solid transparent;
 }

@@ -85,9 +85,7 @@ function toggleDescription(i: number) {
                   :key="'track_link'+i"
                   @click="goLink(item)"
                   variant="text"
-                  target="_blank"
                   rounded
-                  size="small"
                   class="music-link-btn"
                 >
                   {{ track[i].platform_name.String }}
@@ -133,8 +131,7 @@ function toggleDescription(i: number) {
 }
 
 .music-card {
-  max-width: 61vh;
-  max-height: 80vh;
+  max-width: 60vh;
   background: none;
   border-radius: 3vh;
   margin-top: 4%;
@@ -147,7 +144,12 @@ function toggleDescription(i: number) {
 }
 
 .music-link-btn {
-  margin: 3% 2%;
+  width: 100%;
+  height: 100%;
+  max-width: 25vw;
+  margin: auto;
+  padding-top: 5%;
+  padding-bottom: 5%;
   transition: 200ms;
   border: 2px solid transparent;
 }

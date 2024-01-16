@@ -44,11 +44,6 @@ function imgPath(t: Track) {
           <v-img class="album-cover"
                  :src="imgPath(track[0])"></v-img>
 
-<!--          <v-card-title>{{ track[0].track_name_cn.String }}</v-card-title>-->
-
-<!--          <v-card-subtitle>{{ track[0].track_name.String }}</v-card-subtitle>-->
-
-
           <v-expand-transition>
 
             <div>
@@ -59,16 +54,12 @@ function imgPath(t: Track) {
                   :key="'track_link'+i"
                   @click="goLink(item)"
                   variant="text"
-                  target="_blank"
                   rounded
-                  size="large"
                   class="music-link-btn"
                 >
                   {{ track[i].platform_name.String }}
                 </v-btn>
               </div>
-
-<!--              {{ track[0].description.String }}-->
             </div>
           </v-expand-transition>
 
@@ -112,9 +103,13 @@ function imgPath(t: Track) {
 
 .music-link-btn {
   width: 100%;
+  height: 100%;
   max-width: 25vw;
   margin: auto;
+  padding-top: 5%;
+  padding-bottom: 5%;
   transition: 200ms;
+  border: 2px solid transparent;
 }
 
 .music-link-btn:hover {
