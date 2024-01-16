@@ -36,7 +36,7 @@ function imgPath(t: Track) {
 <template>
 
   <div style="text-align: center" v-if="fetched">
-    <v-icon icon="mdi-star-shooting"></v-icon>
+    <v-icon style="margin-top: 5%" icon="mdi-star-shooting" size="x-large"></v-icon>
 
     <div style="user-select: none">
       <div class="track-box">
@@ -44,9 +44,9 @@ function imgPath(t: Track) {
           <v-img class="album-cover"
                  :src="imgPath(track[0])"></v-img>
 
-          <v-card-title>{{ track[0].track_name_cn.String }}</v-card-title>
+<!--          <v-card-title>{{ track[0].track_name_cn.String }}</v-card-title>-->
 
-          <v-card-subtitle>{{ track[0].track_name.String }}</v-card-subtitle>
+<!--          <v-card-subtitle>{{ track[0].track_name.String }}</v-card-subtitle>-->
 
 
           <v-expand-transition>
@@ -61,14 +61,14 @@ function imgPath(t: Track) {
                   variant="text"
                   target="_blank"
                   rounded
-                  size="small"
+                  size="large"
                   class="music-link-btn"
                 >
                   {{ track[i].platform_name.String }}
                 </v-btn>
               </div>
 
-              {{ track[0].description.String }}
+<!--              {{ track[0].description.String }}-->
             </div>
           </v-expand-transition>
 
@@ -98,12 +98,11 @@ function imgPath(t: Track) {
 }
 
 .music-card {
-  max-width: 61vh;
-  max-height: 80vh;
+  max-width: 50vh;
   background: none;
   border-radius: 3vh;
-  margin-top: 4%;
-  margin-bottom: 4%;
+  margin-top: 5%;
+  margin-bottom: 12%;
   transition: 400ms;
 }
 
@@ -112,7 +111,9 @@ function imgPath(t: Track) {
 }
 
 .music-link-btn {
-  margin: 3% 2%;
+  width: 100%;
+  max-width: 25vw;
+  margin: auto;
   transition: 200ms;
 }
 

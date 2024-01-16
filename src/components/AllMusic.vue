@@ -61,7 +61,7 @@ function toggleDescription(i: number) {
 <template>
 
   <div v-if="fetched">
-    <v-icon icon="mdi-music"></v-icon>
+    <v-icon size="x-large" icon="mdi-music" style="margin-bottom: 5%"></v-icon>
 
     <div style="user-select: none">
       <div class="track-box" v-for="(item, index) in tracks" :key="'track'+index.toString()">
