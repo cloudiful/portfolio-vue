@@ -32,13 +32,11 @@ function goLink(p: Platform) {
 <template>
   <!--      音乐平台链接-->
   <div style="width: 80%; margin:auto">
-    <v-row style="margin-top:3%;margin-bottom: 2%" class="d-flex align-center justify-center" v-if="fetched">
+    <v-row style="margin-top:5%;" class="d-flex align-center justify-center" v-if="fetched">
 
       <v-col v-for="(platform, index) of platforms" :key="index" cols="auto">
         <v-btn
           @click="goLink(platform)"
-          rel="noopener noreferrer"
-          target="_blank"
           variant="plain"
           rounded
           :ripple="false"
@@ -61,6 +59,7 @@ function goLink(p: Platform) {
 <style scoped>
 .platform-links-btn {
   transition: 200ms;
+  border: 2px solid transparent;
 }
 
 .platform-links-btn:hover {

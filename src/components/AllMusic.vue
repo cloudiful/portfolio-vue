@@ -60,20 +60,20 @@ function toggleDescription(i: number) {
 
 <template>
 
+  <v-icon size="x-large" icon="mdi-music" style="margin-bottom: 5%"></v-icon>
+
   <div v-if="fetched">
-    <v-icon size="x-large" icon="mdi-music" style="margin-bottom: 5%"></v-icon>
 
     <div style="user-select: none">
-      <div class="track-box" v-for="(item, index) in tracks" :key="'track'+index.toString()">
-        <v-card variant="text" class="mx-auto music-card" @mouseenter="showBtn[index].value = true"
+      <div class="track-box" v-for="(item, index) in tracks"
+           :key="'track'+index.toString()">
+        <v-card variant="text" class="mx-auto music-card"
+                @mouseenter="showBtn[index].value = true"
                 @mouseleave="showBtn[index].value = false">
-          <v-img @click="toggleDescription(index)" class="album-cover"
-                 :src="imgPath(track[tracks_index[index]])"></v-img>
-
-          <!--          <v-card-title>{{ track[tracks_index[index]].track_name_cn.String }}</v-card-title>-->
-
-          <!--          <v-card-subtitle>{{ track[tracks_index[index]].track_name.String }}</v-card-subtitle>-->
-
+          <v-img @click="toggleDescription(index)"
+                 class="album-cover"
+                 :src="imgPath(track[tracks_index[index]])">
+          </v-img>
 
           <v-expand-transition>
 
@@ -93,10 +93,6 @@ function toggleDescription(i: number) {
                   {{ track[i].platform_name.String }}
                 </v-btn>
               </div>
-
-              <!--              <v-card-text>-->
-              <!--                {{ track[tracks_index[index]].description.String }}-->
-              <!--              </v-card-text>-->
             </div>
           </v-expand-transition>
 
@@ -146,13 +142,14 @@ function toggleDescription(i: number) {
   transition: 400ms;
 }
 
-.music-card:hover{
+.music-card:hover {
   box-shadow: 0 0 32px 12px rgba(131, 131, 131, 0.25);
 }
 
 .music-link-btn {
   margin: 3% 2%;
   transition: 200ms;
+  border: 2px solid transparent;
 }
 
 .music-link-btn:hover {
