@@ -51,6 +51,11 @@ function imgPath(t: Track) {
   return new URL(`/src/assets/${t.track_name.String}.webp`, import.meta.url).href
 }
 
+// toggle to show description
+function toggleDescription(i: number) {
+  show[i].value = !show[i].value;
+}
+
 </script>
 
 <template>
@@ -60,10 +65,9 @@ function imgPath(t: Track) {
 
     <div style="user-select: none">
       <div class="track-box" v-for="(item, index) in tracks" :key="'track'+index.toString()">
-        <v-card variant="text" class="mx-auto music-card"
-                @pointerenter="showBtn[index].value = true; show[index].value = true;"
-                @pointerleave="showBtn[index].value = false; show[index].value = false">
-          <v-img name="album_img" class="album-cover"
+        <v-card variant="text" class="mx-auto music-card" @pointerenter="showBtn[index].value = true"
+                @pointerleave="showBtn[index].value = false">
+          <v-img @click="toggleDescription(index)" class="album-cover"
                  :src="imgPath(track[tracks_index[index]])"></v-img>
 
           <!--          <v-card-title>{{ track[tracks_index[index]].track_name_cn.String }}</v-card-title>-->
@@ -97,13 +101,13 @@ function imgPath(t: Track) {
           </v-expand-transition>
 
 
-          <!--          <v-btn :ripple="false" class="show-more-btn" variant="plain" @click="toggleDescription(index)">-->
-          <!--            <Transition name="fade">-->
-          <!--              <v-icon v-if="showBtn[index].value"-->
-          <!--                      size="large"-->
-          <!--                      :icon="show[index].value ? 'mdi-chevron-up' : 'mdi-chevron-down'"></v-icon>-->
-          <!--            </Transition>-->
-          <!--          </v-btn>-->
+          <v-btn :ripple="false" class="show-more-btn" variant="plain" @click="toggleDescription(index)">
+            <Transition name="fade">
+              <v-icon v-if="showBtn[index].value"
+                      size="large"
+                      :icon="show[index].value ? 'mdi-chevron-up' : 'mdi-chevron-down'"></v-icon>
+            </Transition>
+          </v-btn>
 
 
         </v-card>
@@ -117,8 +121,12 @@ function imgPath(t: Track) {
 <style scoped>
 .expanded-area {
   width: 100%;
-  padding-top: 10%;
-  padding-bottom: 10%;
+  padding-top: 4%
+}
+
+.show-more-btn {
+  width: 100%;
+  background: none;
 }
 
 .album-cover {
@@ -142,11 +150,11 @@ function imgPath(t: Track) {
 
 .music-card:hover {
   max-width: 65vh;
-  max-height: 92vh;
+  max-height: 86vh;
 }
 
 .music-link-btn {
-  margin: 3% 3%;
+  margin: 3% 2%;
   box-shadow: 0 0 36px 0 rgba(0, 0, 0, 0.08);
 }
 
