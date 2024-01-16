@@ -6,6 +6,7 @@ import LinksToPlatforms from "@/components/LinksToPlatforms.vue";
 
 let fetched = ref(false);
 let showPlatformLinks = ref(false)
+let showBtn = ref(false)
 
 let res: Artist;
 
@@ -32,7 +33,8 @@ getInfo();
 
 <template>
   <div v-if="fetched">
-    <v-avatar size="20%" class="my-logo">
+    <v-avatar size="20%" class="my-logo" @click="togglePlatformLink" @mouseenter="showBtn=true"
+              @mouseleave="showBtn=false">
       <v-img src="@/assets/logo.webp"/>
     </v-avatar>
 
@@ -46,7 +48,8 @@ getInfo();
 
   <v-btn :ripple="false" class="show-more-btn" variant="plain" @click="togglePlatformLink">
     <Transition name="fade">
-      <v-icon size="large"
+      <v-icon v-if="showBtn"
+              size="large"
               :icon="showPlatformLinks ? 'mdi-chevron-up' : 'mdi-chevron-down'"></v-icon>
     </Transition>
   </v-btn>
