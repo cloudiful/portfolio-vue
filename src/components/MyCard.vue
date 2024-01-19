@@ -6,22 +6,25 @@ import {Link} from "@/interfaces/link";
 withDefaults(defineProps<{
   'imgName'?: string | null
   'links'?: Array<Link> | null
-  'expandable'?: boolean
+  'expanded'?: boolean
 }>(), {
   imgName: '',
   links: null,
-  expandable: true,
+  expanded: false,
 })
 
+// show the expansion area
 let show = ref(false);
+
+// show the small triangle button
 let showBtn = ref(false);
 
-function toggleDescription() {
+function toggleExpansion() {
   show.value = !show.value;
 }
 
 function imgPathProcess(i: string | null) {
-  return new URL(`/src/assets/${i}.webp`, import.meta.url).href
+  return new URL(`/src/assets/img/${i}.webp`, import.meta.url).href
 }
 
 function goLink(url: string) {
@@ -34,14 +37,14 @@ function goLink(url: string) {
   <v-card variant="text" class="mx-auto music-card"
           @mouseenter="showBtn = true"
           @mouseleave="showBtn = false">
-    <v-img @click="toggleDescription()"
+    <v-img @click="toggleExpansion()"
            class="album-cover"
            :src="imgPathProcess(imgName)">
     </v-img>
 
     <v-expand-transition>
 
-      <div v-if="show">
+      <div v-if="show || expanded">
 
         <div class="expanded-area">
           <v-btn
@@ -59,7 +62,7 @@ function goLink(url: string) {
     </v-expand-transition>
 
   </v-card>
-  <v-btn :ripple="false" class="show-more-btn" variant="plain" @click="toggleDescription()">
+  <v-btn :ripple="false" class="show-more-btn" variant="plain" @click="toggleExpansion()">
     <Transition name="fade">
       <v-icon v-if="showBtn"
               size="large"
