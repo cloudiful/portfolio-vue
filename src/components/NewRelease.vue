@@ -33,7 +33,8 @@ getInfo()
     <div style="user-select: none">
       <div class="track-box">
         <my-card :img-name="track.track_name.String"
-                 :links="track.links.JSON">
+                 :links="track.links.JSON"
+                 expanded>
         </my-card>
       </div>
     </div>

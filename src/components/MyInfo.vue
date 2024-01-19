@@ -33,7 +33,7 @@ getInfo();
 <template>
   <v-avatar size="20%" class="my-logo"
             @click="togglePlatformLink">
-    <v-img src="@/assets/logo.webp"/>
+    <v-img src="@/assets/img/logo.webp"/>
   </v-avatar>
   <div v-if="fetched">
     <h4 style="padding-top: 4%">{{ res.author_name_cn.String }}｜{{ res.author_name.String }}</h4>
@@ -56,7 +56,7 @@ getInfo();
 <style scoped>
 .show-more-btn {
   width: 100%;
-  margin-top: 5%;
+  margin-top: 2%;
   margin-bottom: 5%;
   background: none;
 }
