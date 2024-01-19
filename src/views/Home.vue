@@ -4,7 +4,7 @@
 
       <MyInfo></MyInfo>
       <!--      <NewRelease></NewRelease>-->
-      <AllMusic style="margin-top: 10%"></AllMusic>
+      <AllMusic></AllMusic>
       <AllGames></AllGames>
 
     </v-responsive>
