@@ -1,3 +1,5 @@
+import {Link} from "@/interfaces/link";
+
 export interface Track {
   track_name: {
     String: string,
@@ -8,7 +10,7 @@ export interface Track {
   release_date: {
     DATE: Date,
   },
-  artist_name: {
+  author_name: {
     String: string,
   },
   description: {
@@ -17,10 +19,7 @@ export interface Track {
   description_cn: {
     String: string,
   },
-  link_url: {
-    String: string,
+  links: {
+    JSON: Array<Link>,
   },
-  platform_name: {
-    String: string,
-  }
 }
