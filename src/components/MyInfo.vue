@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import {ref} from "vue";
-import {Artist} from "@/interfaces/artist";
+import {Author} from "@/interfaces/author";
 import axios from "axios";
 import LinksToPlatforms from "@/components/LinksToPlatforms.vue";
 
 let fetched = ref(false);
 let showPlatformLinks = ref(false)
 
-let res: Artist;
+let res: Author;
 
 let params = {
-  artist_id: 1,
+  author_id: 1,
 }
 
 async function getInfo() {
-  await axios.post('/getArtistInfo', params).then(function (response) {
+  await axios.post('/getAuthorInfo', params).then(function (response) {
     res = response.data[0];
     fetched.value = true;
   }).catch(function (error) {
@@ -36,7 +36,7 @@ getInfo();
     <v-img src="@/assets/logo.webp"/>
   </v-avatar>
   <div v-if="fetched">
-    <h4 style="padding-top: 4%">{{ res.artist_name_cn.String }}｜{{ res.artist_name.String }}</h4>
+    <h4 style="padding-top: 4%">{{ res.author_name_cn.String }}｜{{ res.author_name.String }}</h4>
   </div>
 
   <v-expand-transition>

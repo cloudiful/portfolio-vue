@@ -6,7 +6,7 @@ import axios from "axios";
 let fetched = ref(false);
 
 let params = {
-  artist_id: 1,
+  author_id: 1,
 }
 
 let platforms: Array<Platform>;
