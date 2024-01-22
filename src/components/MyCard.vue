@@ -8,7 +8,7 @@ withDefaults(defineProps<{
   'links'?: Array<Link> | null
   'expanded'?: boolean
 }>(), {
-  imgName: '',
+  imgName: 'default',
   links: null,
   expanded: false,
 })
@@ -62,7 +62,7 @@ function goLink(url: string) {
     </v-expand-transition>
 
   </v-card>
-  <v-btn :ripple="false" class="show-more-btn" variant="plain" @click="toggleExpansion()">
+  <v-btn v-if="!expanded" :ripple="false" class="show-more-btn" variant="plain" @click="toggleExpansion()">
     <Transition name="fade">
       <v-icon v-if="showBtn"
               size="large"
