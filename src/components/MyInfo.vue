@@ -7,7 +7,7 @@ import LinksToPlatforms from "@/components/LinksToPlatforms.vue";
 let fetched = ref(false);
 let showPlatformLinks = ref(false)
 
-let res: Author;
+let author: Author;
 
 let params = {
   author_id: 1,
@@ -15,7 +15,7 @@ let params = {
 
 async function getInfo() {
   await axios.post('/getAuthorInfo', params).then(function (response) {
-    res = response.data[0];
+    author = response.data[0];
     fetched.value = true;
   }).catch(function (error) {
     console.log(error)
@@ -35,8 +35,11 @@ getInfo();
             @click="togglePlatformLink">
     <v-img src="@/assets/img/logo.webp"/>
   </v-avatar>
+  <div v-show="!fetched">
+    <h4 style="padding-top: 4%">云漫｜Cloudiful</h4>
+  </div>
   <div v-if="fetched">
-    <h4 style="padding-top: 4%">{{ res.author_name_cn.String }}｜{{ res.author_name.String }}</h4>
+    <h4 style="padding-top: 4%">{{ author.author_name_cn.String }}｜{{ author.author_name.String }}</h4>
   </div>
 
   <v-expand-transition>

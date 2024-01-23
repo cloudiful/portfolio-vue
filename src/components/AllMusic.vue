@@ -25,20 +25,23 @@ getInfo()
 
   <v-icon size="x-large" icon="mdi-music" style="margin-bottom: 5%"></v-icon>
 
-  <div v-if="fetched">
+  <div v-show="!fetched" style="user-select: none">
+    <my-card img-name="default">
+    </my-card>
+    <my-card img-name="default">
+    </my-card>
+  </div>
 
-    <div style="user-select: none">
-      <div class="track-box"
-           v-for="(track, index) in tracks"
-           :key="'track_'+index.toString()">
-        <my-card
-          :img-name="track.track_name.String"
-          :links="track.links.JSON"
-        >
-        </my-card>
-      </div>
+  <div v-if="fetched" style="user-select: none">
+    <div class="track-box"
+         v-for="(track, index) in tracks"
+         :key="'track_'+index.toString()">
+      <my-card
+        :img-name="track.track_name.String"
+        :links="track.links.JSON"
+      >
+      </my-card>
     </div>
-
   </div>
 
 </template>

@@ -4,7 +4,11 @@ import NewRelease from "@/components/NewRelease.vue";
 </script>
 
 <template>
-  <new-release></new-release>
+  <v-container>
+    <v-responsive>
+      <new-release></new-release>
+    </v-responsive>
+  </v-container>
 </template>
 
 <style scoped>
