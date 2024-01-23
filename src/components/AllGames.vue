@@ -25,8 +25,9 @@ getInfo()
 
 <template>
 
+  <v-icon size="x-large" icon="mdi-controller" style="margin-bottom: 5%"></v-icon>
+
   <div v-if="fetched">
-    <v-icon size="x-large" icon="mdi-controller" style="margin-bottom: 5%"></v-icon>
 
     <div style="user-select: none">
 

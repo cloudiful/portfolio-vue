@@ -26,7 +26,7 @@ function togglePlatformLink() {
   showPlatformLinks.value = !showPlatformLinks.value;
 }
 
-getInfo();
+// getInfo();
 
 </script>
 
@@ -35,12 +35,12 @@ getInfo();
             @click="togglePlatformLink">
     <v-img src="@/assets/img/logo.webp"/>
   </v-avatar>
-  <div v-show="!fetched">
+  <div>
     <h4 style="padding-top: 4%">云漫｜Cloudiful</h4>
   </div>
-  <div v-if="fetched">
-    <h4 style="padding-top: 4%">{{ author.author_name_cn.String }}｜{{ author.author_name.String }}</h4>
-  </div>
+<!--  <div v-if="fetched">-->
+<!--    <h4 style="padding-top: 4%">{{ author.author_name_cn.String }}｜{{ author.author_name.String }}</h4>-->
+<!--  </div>-->
 
   <v-expand-transition>
     <LinksToPlatforms v-show="showPlatformLinks"></LinksToPlatforms>

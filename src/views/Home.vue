@@ -6,7 +6,7 @@
       <!--      <NewRelease></NewRelease>-->
       <AllMusic></AllMusic>
       <AllGames></AllGames>
-<!--      <AllVideos></AllVideos>-->
+      <!--      <AllVideos></AllVideos>-->
 
     </v-responsive>
   </v-container>
@@ -16,5 +16,4 @@
 import MyInfo from "@/components/MyInfo.vue";
 import AllMusic from "@/components/AllMusic.vue";
 import AllGames from "@/components/AllGames.vue";
-import AllVideos from "@/components/AllVideos.vue";
 </script>
