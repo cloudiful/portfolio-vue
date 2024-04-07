@@ -12,7 +12,6 @@ let games: Array<Game>;
 async function getInfo() {
   await axios.post('/getAllGames').then(function (response) {
     games = response.data;
-    console.log(games)
     fetched.value = true;
   }).catch(function (error) {
     console.log(error)

@@ -12,7 +12,6 @@ let videos: Array<Video>;
 async function getInfo() {
   await axios.post('/getAllVideos').then(function (response) {
     videos = response.data;
-    console.log(videos)
     fetched.value = true;
   }).catch(function (error) {
     console.log(error)
